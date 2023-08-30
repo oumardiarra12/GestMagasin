@@ -11,7 +11,7 @@ class StoreProduitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreProduitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'codebarre'=>'nullable',
+            'nom_produit'=>'required',
+            'stockmin'=>'required|numeric',
+            'prixvente_produit'=>'required|numeric',
+            'prixachat_produit'=>'required|numeric',
+            'description_produit'=>'nullable',
+            'famille_id'=>'required',
+            'unite_id'=>'required'
         ];
     }
 }

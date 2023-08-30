@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string("num_vente")->nullable();
             $table->enum("status_vente_paiement",["non payer","payer","payer partial"])->default("non payer");
             $table->integer("total_vente");
-            $table->date("date_vente")->default(date('m/d/y'));
+            $table->date("date_vente")->default(date('Y-m-d'));
             $table->string("description_vente")->nullable();
-            $table->string("user_id");
             $table->foreignId("client_id")->constrained('clients');
+            $table->foreignId("user_id")->constrained('users');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -30,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('ventes', function (Blueprint $table) {
-            $table->dropColumn(["client_id"]);
+            $table->dropColumn(["client_id","user_id"]);
         });
         Schema::dropIfExists('ventes');
     }

@@ -11,7 +11,7 @@ class StorePaiementAchatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePaiementAchatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'achat_id'=>'required',
+            'total_achat'=>'required',
+            'total_payer'=>'required',
+            'total_reste'=>'required',
+            'date_paiement_achat'=>'required',
+            'description_paiement'=>'nullable'
         ];
     }
 }

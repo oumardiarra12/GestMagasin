@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class RetourAchat extends Model
 {
     use HasFactory;
-    protected $fillable = ["id","num_retour_achat","refreception_retour_achat","total_retour_achat","date_retour_achat", "fournisseur_id","description_retour_achat","user_id"];
+    protected $fillable = ["id","num_retour_achat","achat_id","total_retour_achat","date_retour_achat", "description_retour_achat","user_id"];
     public $timestamps = false;
-    public function fournisseur(){
-        return $this->belongsTo(Fournisseur::class,"fournisseur_id","id");
+    public function achat(){
+        return $this->belongsTo(Achat::class,"achat_id","id");
+    }
+    public function user(){
+        return $this->belongsTo(User::class,"user_id","id");
     }
 }

@@ -11,7 +11,7 @@ class UpdateRetourAchatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateRetourAchatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'total_retour_achat'=>"required",
+            'description_retour_achat'=>'nullable',
+            'date_retour_achat'=>'required|date',
+            'quantite_retourligneAchat.*'=>'required|numeric',
+            'prixachat_retourligneAchat.*'=>'required',
+            'soustotal_retourligneAchat.*'=>'required',
+            'produit_id.*'=>'required',
         ];
     }
 }

@@ -20,7 +20,7 @@ class RetournVenteSeeder extends Seeder
             "num_retourvente"=>$faker->numerify,
             "ref_retourvente"=>$faker->numerify,
                'total_retourvente'=>$faker->numerify('#######'),
-               'client_id'=>$i,
+               'vente_id'=>$i,
                "user_id"=>1,
                'description_retourvente'=>$faker->text,
            ]);

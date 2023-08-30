@@ -33,8 +33,6 @@ class DatabaseSeeder extends Seeder
             FournisseurSeeder::class,
             AchatSeeder::class,
             LigneachatSeeder::class,
-            ReceptionSeeder::class,
-            LignereceptionSeeder::class,
             VenteSeeder::class,
             LigneventeSeeder::class,
             RetournAchatSeeder::class,
@@ -43,6 +41,8 @@ class DatabaseSeeder extends Seeder
             LigneRetournVenteSeeder::class,
             DevisSeeder::class,
             LigneDevisSeeder::class,
+            CategorieDepenseSeeder::class,
+            DepenseSeeder::class
         ]);
 
     }

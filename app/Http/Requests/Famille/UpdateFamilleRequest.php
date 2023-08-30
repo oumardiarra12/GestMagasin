@@ -22,7 +22,9 @@ class UpdateFamilleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'nullable',
+            'nom_famille'=>'required',
+            'description_famille'=>'nullable'
         ];
     }
 }

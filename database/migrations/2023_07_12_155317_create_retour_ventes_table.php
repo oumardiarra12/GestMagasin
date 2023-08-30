@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string("num_retourvente")->nullable();
             $table->string("ref_retourvente")->nullable();
             $table->integer("total_retourvente");
-            $table->date("date_retourvente")->default(date('m/d/y'));
+            $table->date("date_retourvente")->default(date('Y-m-d'));
             $table->string("description_retourvente")->nullable();
-            $table->string("user_id");
-            $table->foreignId("client_id")->constrained('clients');
+            $table->foreignId("vente_id")->constrained('ventes');
+            $table->foreignId("user_id")->constrained('users');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -30,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('retour_ventes', function (Blueprint $table) {
-            $table->dropColumn(["client_id"]);
+            $table->dropColumn(["vente_id","user_id"]);
         });
         Schema::dropIfExists('retour_ventes');
     }

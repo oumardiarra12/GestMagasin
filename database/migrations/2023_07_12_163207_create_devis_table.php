@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string("num_devis")->nullable();
             $table->enum("status_devis",["non accepter","accepter"])->default("non accepter");
             $table->integer("total_devis");
-            $table->date("date_devis")->default(date('m/d/y'));
+            $table->date("date_devis")->default(date('Y-m-d'));
             $table->string("description_devis")->nullable();
-            $table->string("user_id");
             $table->foreignId("client_id")->constrained('clients');
+            $table->foreignId("user_id")->constrained('users');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -30,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('devis', function (Blueprint $table) {
-            $table->dropColumn(["client_id"]);
+            $table->dropColumn(["client_id","user_id"]);
         });
         Schema::dropIfExists('devis');
     }

@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('paiement_achats', function (Blueprint $table) {
             $table->id();
+            $table->string("num_paiement_achats")->nullable();
             $table->integer("total_achat");
             $table->integer("total_payer");
             $table->integer("total_reste");
             $table->string("user_id");
-            $table->date("date_paiement_achat")->default(date('m/d/y'));
+            $table->date("date_paiement_achat")->default(date('Y-m-d'));
             $table->string("description_paiement")->nullable();
-            $table->foreignId("reception_id")->constrained('receptions');
+            $table->foreignId("achat_id")->constrained('achats');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -30,7 +31,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('paiement_achats', function (Blueprint $table) {
-            $table->dropColumn(["reception_id"]);
+            $table->dropColumn(["achat_id"]);
         });
         Schema::dropIfExists('paiement_achats');
     }

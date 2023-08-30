@@ -11,7 +11,7 @@ class StoreAchatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class StoreAchatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "date_achat"=>"required|date",
+            "total_achat"=>"required|numeric",
+            "fournisseur_id"=>"required",
+            "description_achat"=>"nullable",
+            "status_achat_reception"=>"required",
+            "quantite_ligneAchat.*"=>"required|numeric",
+            "quantite_recu_ligneAchat.*"=>"required|numeric",
+            "prixachat_ligneAchat.*"=>"required|numeric",
+            "soustotal_ligneAchat.*"=>"required|numeric",
+            "produit_id.*"=>"required",
+            "achat_id.*"=>"required"
         ];
     }
 }

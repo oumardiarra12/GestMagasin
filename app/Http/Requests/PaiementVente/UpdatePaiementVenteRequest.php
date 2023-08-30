@@ -11,7 +11,7 @@ class UpdatePaiementVenteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdatePaiementVenteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'total_vente'=>'required',
+            'total_payer'=>'required',
+            'total_reste'=>'required',
+            'date_paiement_vente'=>'required',
+            'description_paiement'=>'nullable'
         ];
     }
 }

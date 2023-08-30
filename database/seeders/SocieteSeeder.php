@@ -19,7 +19,7 @@ class SocieteSeeder extends Seeder
             "nom_societe"=>"SADIOTECH",
             "activite_societe"=>"gestion",
             "tel_societe"=>$faker->phoneNumber,
-            "logo_societe"=>$faker->imageUrl,
+            "logo_societe"=>"logo.jpg",
             "nif_societe"=>"123456789",
             "bp_societe"=>"Bamako 123",
             "adresse"=>$faker->address

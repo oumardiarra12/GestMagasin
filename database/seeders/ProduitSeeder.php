@@ -26,7 +26,8 @@ class ProduitSeeder extends Seeder
                "stockmin"=>20,
                "stockactuel"=>200,
                "famille_id"=>$i,
-               "unite_id"=>1
+               "unite_id"=>1,
+               "user_id"=>1
            ]);
        }
     }

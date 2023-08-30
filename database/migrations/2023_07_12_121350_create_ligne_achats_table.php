@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('ligne_achats', function (Blueprint $table) {
             $table->id();
             $table->integer("quantite_ligneAchat");
-            $table->integer("quantite_recu_ligneAchat");
+            $table->integer("quantite_recu_ligneAchat")->nullable();
+            $table->integer("quantiterecu_ligneAchat")->nullable();
             $table->integer("prixachat_ligneAchat");
             $table->integer("soustotal_ligneAchat");
             $table->foreignId("produit_id")->constrained('produits');

@@ -50,4 +50,12 @@ class User extends Authenticatable
     public function categorie(){
         return $this->belongsTo(Categorie::class,'categorie_id','id');
     }
+    public function estCategorie($categorie){
+        return $this->categorie()->where("nom_categorie",$categorie)->first()!==null;
+    }
+
+    public function tousCategorie($categories){
+        return $this->categorie()->whereIn("nom_categorie",$categories)->first()!==null;
+    }
+
 }

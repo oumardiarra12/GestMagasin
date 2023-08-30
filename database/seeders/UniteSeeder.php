@@ -18,17 +18,20 @@ class UniteSeeder extends Seeder
         Unite::create([
             "code_unite"=> "carton",
             'nom_unite' => "carton",
-            "description_unite"=>$faker->text
+            "description_unite"=>$faker->text,
+            "user_id"=>1
         ]);
         Unite::create([
             "code_unite"=> "L",
             'nom_unite' => "Littre",
-            "description_unite"=>$faker->text
+            "description_unite"=>$faker->text,
+            "user_id"=>1
         ]);
         Unite::create([
             "code_unite"=> "Boite",
             'nom_unite' => "Boite",
-            "description_unite"=>$faker->text
+            "description_unite"=>$faker->text,
+            "user_id"=>1
         ]);
     }
 }

@@ -11,7 +11,7 @@ class UpdateRetourVenteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateRetourVenteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'total_retourvente'=>"required",
+            'description_retourvente'=>'nullable',
+            'date_retourvente'=>'required|date',
+            'quantite_ligneretourvente.*'=>'required|numeric',
+            'prixvente_ligneretourvente.*'=>'required',
+            'soustotal_ligneretourvente.*'=>'required',
+            'produit_id.*'=>'required',
         ];
     }
 }

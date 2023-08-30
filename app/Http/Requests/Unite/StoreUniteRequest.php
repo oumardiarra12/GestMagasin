@@ -11,7 +11,7 @@ class StoreUniteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreUniteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "code_unite"=>"required",
+            "nom_unite"=>"required",
+            "description_unite"=>"nullable"
         ];
     }
 }

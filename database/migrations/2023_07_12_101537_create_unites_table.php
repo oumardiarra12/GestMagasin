@@ -16,7 +16,9 @@ return new class extends Migration
            $table->string("code_unite");
            $table->string("nom_unite");
            $table->string("description_unite")->nullable();
+           $table->foreignId("user_id")->constrained('users');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -24,6 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('unites', function (Blueprint $table) {
+            $table->dropColumn(["user_id"]);
+        });
         Schema::dropIfExists('unites');
     }
 };

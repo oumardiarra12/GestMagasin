@@ -18,11 +18,10 @@ class RetournAchatSeeder extends Seeder
         for ($i=1; $i <= 10 ; $i++) {
           RetourAchat::create([
             "num_retour_achat"=>$faker->numerify,
-            "refreception_retour_achat"=>$faker->numerify,
-               'total_retour_achat'=>$faker->numerify('#######'),
-               'fournisseur_id'=>$i,
-               "user_id"=>1,
-               'description_retour_achat'=>$faker->text,
+            "achat_id"=>1,
+            'total_retour_achat'=>$faker->numerify('#######'),
+            "user_id"=>1,
+            'description_retour_achat'=>$faker->text,
            ]);
        }
     }

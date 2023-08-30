@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Societe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SocieteController extends Controller
 {
@@ -20,7 +21,8 @@ class SocieteController extends Controller
      */
     public function create()
     {
-        //
+        $societe=Societe::first();
+        return view('pages.societe.create',compact('societe'));
     }
 
     /**
@@ -28,7 +30,31 @@ class SocieteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imageName="";
+        $societe=Societe::first();
+        if($request->file('logo_societe')){
+            if ($societe->logo_societe) {
+                Storage::delete('public/logosociete/' . $societe->logo_societe);
+              }
+            $imageName = 'logo'.'.'.$request->logo_societe->extension();
+            $request->logo_societe->storeAs('public/logosociete', $imageName);
+
+        }else {
+            $imageName="logosociete.jpg";
+        }
+        Societe::updateOrCreate([
+            'id'=>1
+        ],[
+            'nom_societe'=>$request->nom_societe,
+            'activite_societe'=>$request->activite_societe,
+            'tel_societe'=>$request->tel_societe,
+            'nif_societe'=>$request->nif_societe,
+            'bp_societe'=>$request->bp_societe,
+            'adresse'=>$request->adresse,
+            'logo_societe'=> $imageName,
+
+        ]);
+        return redirect()->back();
     }
 
     /**

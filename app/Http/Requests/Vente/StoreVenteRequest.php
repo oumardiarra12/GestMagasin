@@ -11,7 +11,7 @@ class StoreVenteRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreVenteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "total_vente"=>"required|numeric",
+            "date_vente"=>"required|date",
+            "client_id"=>"required",
+            "description_vente"=>"nullable",
+            "quantite_lignevente.*"=>"required|numeric",
+            "prixvente_lignevente.*"=>"required|numeric",
+            "soustotal_lignevente.*"=>"required|numeric",
+            "produit_id.*"=>"required",
+            "vente_id.*"=>"required"
         ];
     }
 }

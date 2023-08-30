@@ -11,7 +11,7 @@ class StoreFournisseurRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreFournisseurRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nom_fournisseur'=>'required|string',
+            'prenom_fournisseur'=>'required|string',
+            'email_fournisseur'=>'required|email',
+            'tel_fournisseur'=>'required|numeric',
+            'adresse_fournisseur'=>'required',
+            'description_fournisseur'=>'nullable'
         ];
     }
 }

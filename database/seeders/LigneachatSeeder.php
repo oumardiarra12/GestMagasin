@@ -18,7 +18,7 @@ class LigneachatSeeder extends Seeder
         for ($i=1; $i <= 10 ; $i++) {
           LigneAchat::create([
             "quantite_ligneAchat"=>10,
-            "quantite_recu_ligneAchat"=>5,
+            "quantite_recu_ligneAchat"=>0,
                'prixachat_ligneAchat' => $faker->numerify('#######'),
                'soustotal_ligneAchat'=>$faker->numerify('#######'),
                'produit_id'=>$i,

@@ -11,7 +11,7 @@ class StoreDevisRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreDevisRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "total_devis"=>"required|numeric",
+            "date_devis"=>"required|date",
+            "client_id"=>"required",
+            "description_devis"=>"nullable",
+            "quantite_lignedevis.*"=>"required|numeric",
+            "prixvente_lignedevis.*"=>"required|numeric",
+            "soustotal_lignedevis.*"=>"required|numeric",
+            "produit_id.*"=>"required"
         ];
     }
 }

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("description_produit");
            $table->foreignId("famille_id")->constrained('familles');
             $table->foreignId("unite_id")->constrained('unites');
+            $table->foreignId("user_id")->constrained('users');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -33,7 +34,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('produits', function (Blueprint $table) {
-            $table->dropColumn(["famille_id","unite_id"]);
+            $table->dropColumn(["famille_id","unite_id","user_id"]);
         });
         Schema::dropIfExists('produits');
     }

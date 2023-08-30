@@ -19,6 +19,7 @@ class FamilleSeeder extends Seeder
            Famille::create([
                'nom_famille' => $faker->name,
                'description_famille' => $faker->text,
+               "user_id"=>1
            ]);
        }
     }

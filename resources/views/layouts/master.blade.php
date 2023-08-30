@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 @php
-    $company = DB::table('companies')->first();
+    $societe = DB::table('societes')->first();
 @endphp
 
 <head>
@@ -16,7 +16,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url('/logosociete/' . $company->company_logo) }}">
+    {{-- <link rel="shortcut icon" type="image/x-icon" href="{{ Storage::url('/logosociete/' . $company->company_logo) }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/toastr/toatr.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}" />
@@ -61,6 +61,7 @@
     </div>
     <!--end::Main-->
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-barcode.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.valiadate.min.js') }}"></script>

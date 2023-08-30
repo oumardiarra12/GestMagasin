@@ -4,6 +4,7 @@ namespace App\Http\Requests\Famille;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class StoreFamilleRequest extends FormRequest
 {
     /**
@@ -11,7 +12,7 @@ class StoreFamilleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,28 @@ class StoreFamilleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'nullable',
+            "nom_famille"=>"required|string",
+            "description_famille"=>"nullable"
         ];
     }
+    // public function failedValidation(Validator $validator)
+
+    // {
+
+    //     throw new HttpResponseException(response()->json([
+
+    //         'success'   => false,
+
+    //         'message'   => 'Validation errors',
+
+    //         'data'      => $validator->errors()
+
+    //     ]));
+
+    // }
+
+
+
+
 }

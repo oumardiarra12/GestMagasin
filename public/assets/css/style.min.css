@@ -8136,7 +8136,11 @@ span.select2-container.select2-container--default.select2-container--open {
     left: 0;
     top: 0;
     background: #7367f0;
-    border-radius: 4px 0
+    border-radius: 4px 0;
+    -webkit-border-radius: 4px 0;
+    -moz-border-radius: 4px 0;
+    -ms-border-radius: 4px 0;
+    -o-border-radius: 4px 0;
 }
 
 .productset.active {
@@ -8144,11 +8148,19 @@ span.select2-container.select2-container--default.select2-container--open {
 }
 
 .productset:hover .productsetimg img {
-    transform: scale(1.2)
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 .productset:hover .productsetimg h6 {
-    transform: translatey(0)
+    transform: translatey(0);
+    -webkit-transform: translatey(0);
+    -moz-transform: translatey(0);
+    -ms-transform: translatey(0);
+    -o-transform: translatey(0);
 }
 
 .productset .productsetimg {
@@ -8158,7 +8170,11 @@ span.select2-container.select2-container--default.select2-container--open {
 
 .productset .productsetimg img {
     transition: all .5s;
-    border-radius: 5px 5px 0 0
+    border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -ms-border-radius: 5px 5px 0 0;
+    -o-border-radius: 5px 5px 0 0;
 }
 
 @media(max-width:991px) {
@@ -8177,7 +8193,15 @@ span.select2-container.select2-container--default.select2-container--open {
     top: 20px;
     right: 20px;
     transform: translatey(-60px);
-    transition: all .5s
+    transition: all .5s;
+    -webkit-transform: translatey(-60px);
+    -moz-transform: translatey(-60px);
+    -ms-transform: translatey(-60px);
+    -o-transform: translatey(-60px);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
 }
 
 .productset .productsetcontent {
@@ -8351,3 +8375,4 @@ span.select2-container.select2-container--default.select2-container--open {
     top: 50%;
     right: 10px
 }
+

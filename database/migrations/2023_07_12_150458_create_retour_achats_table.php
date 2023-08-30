@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('retour_achats', function (Blueprint $table) {
             $table->id();
             $table->string("num_retour_achat")->nullable();
-            $table->string("refreception_retour_achat")->nullable();
             $table->integer("total_retour_achat");
-            $table->date("date_retour_achat")->default(date('m/d/y'));
+            $table->date("date_retour_achat")->default(date('Y-m-d'));
             $table->string("description_retour_achat")->nullable();
-            $table->string("user_id");
-            $table->foreignId("fournisseur_id")->constrained('fournisseurs');
+            $table->foreignId("user_id")->constrained('users');
+            $table->foreignId("achat_id")->constrained('achats');
         });
         Schema::enableForeignKeyConstraints();
     }
@@ -30,7 +29,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('retour_achats', function (Blueprint $table) {
-            $table->dropColumn(["fournisseur_id"]);
+            $table->dropColumn(["achat_id","user_id"]);
         });
         Schema::dropIfExists('retour_achats');
     }
